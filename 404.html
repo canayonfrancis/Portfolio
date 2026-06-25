@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>404 - Page Not Found | Francis Canayon</title>
+  <meta content="The page you are looking for could not be found." name="description">
+  <meta name="robots" content="noindex">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon-32x32.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body class="error-404-page">
+
+  <header id="header" class="header dark-background d-flex flex-column">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <div class="profile-img">
+      <img src="assets/img/my-profile-img.jpg" alt="Francis Canayon" class="img-fluid rounded-circle">
+    </div>
+
+    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+      <h1 class="sitename">Francis Canayon</h1>
+    </a>
+
+    <div class="social-links text-center">
+      <a href="https://wa.me/639951864535" class="whatsapp" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-whatsapp"></i>
+      </a>
+      <a href="https://www.facebook.com/francislawrenz.canayon/" class="facebook" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a href="https://github.com/canayonfrancis" class="github" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/francis-lawrenz-canayon-991680202/" class="linkedin" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-linkedin"></i>
+      </a>
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
+        <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
+        <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+        <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
+        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <main class="main">
+
+    <div class="page-title dark-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">404 - Page Not Found</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">404</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <section id="error-404" class="error-404 section">
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2>404</h2>
+        <p>The page you are looking for doesn't exist or has been moved.</p>
+      </div>
+
+      <div class="container text-center" data-aos="fade-up" data-aos-delay="100">
+        <p class="mb-4">You can head back to the homepage or reach out if you need help finding something.</p>
+        <a href="index.html" class="btn btn-primary px-4 py-2">Back to Home</a>
+        <a href="index.html#contact" class="btn btn-outline-primary px-4 py-2 ms-2">Contact Me</a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer position-relative light-background">
+
+    <div class="container">
+      <div class="copyright text-center">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Francis Canayon</strong> <span>All Rights Reserved</span></p>
+      </div>
+    </div>
+
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      const headerToggleBtn = document.querySelector(".header-toggle");
+
+      function headerToggle() {
+        document.querySelector("#header").classList.toggle("header-show");
+        headerToggleBtn.classList.toggle("bi-list");
+        headerToggleBtn.classList.toggle("bi-x");
+      }
+
+      headerToggleBtn.addEventListener("click", headerToggle);
+
+      document.querySelectorAll("#navmenu a").forEach(function (navmenu) {
+        navmenu.addEventListener("click", function () {
+          if (document.querySelector(".header-show")) {
+            headerToggle();
+          }
+        });
+      });
+
+      const preloader = document.querySelector("#preloader");
+      if (preloader) {
+        window.addEventListener("load", function () {
+          preloader.remove();
+        });
+      }
+
+      const scrollTop = document.querySelector(".scroll-top");
+      if (scrollTop) {
+        function toggleScrollTop() {
+          window.scrollY > 100 ? scrollTop.classList.add("active") : scrollTop.classList.remove("active");
+        }
+
+        scrollTop.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        window.addEventListener("load", toggleScrollTop);
+        document.addEventListener("scroll", toggleScrollTop);
+      }
+
+      window.addEventListener("load", function () {
+        AOS.init({ duration: 600, easing: "ease-in-out", once: true, mirror: false });
+      });
+    })();
+  </script>
+
+</body>
+
+</html>
