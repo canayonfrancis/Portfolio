@@ -784,43 +784,151 @@
           </div>
 
           <div class="col-lg-7">
-            <form class="php-email-form" data-aos="fade-up" data-aos-delay="200" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-              <input type="hidden" name="form-name" value="contact">
-              <p class="d-none" aria-hidden="true">
-                <label>Don't fill this out: <input name="bot-field"></label>
-              </p>
-              <div class="row gy-4">
+            <div class="contact-form-card php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <form
+                id="contact-form"
+                class="contact-form"
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                novalidate
+                aria-label="Contact form"
+              >
+                <input type="hidden" name="form-name" value="contact">
+                <p class="contact-form__honeypot" aria-hidden="true">
+                  <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+                </p>
 
-                <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Your Name</label>
-                  <input type="text" name="name" id="name-field" class="form-control" required="">
+                <div class="contact-form__body" id="contact-form-body">
+                  <div class="row gy-4">
+                    <div class="col-md-6">
+                      <div class="contact-form__field">
+                        <label for="contact-name" class="contact-form__label">
+                          Full Name <span class="contact-form__required" aria-hidden="true">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          name="name"
+                          id="contact-name"
+                          class="form-control contact-form__input"
+                          autocomplete="name"
+                          required
+                          minlength="2"
+                          maxlength="100"
+                          placeholder="Your full name"
+                          aria-required="true"
+                          aria-describedby="contact-name-error"
+                        >
+                        <span class="contact-form__error" id="contact-name-error" role="alert"></span>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="contact-form__field">
+                        <label for="contact-email" class="contact-form__label">
+                          Email Address <span class="contact-form__required" aria-hidden="true">*</span>
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          id="contact-email"
+                          class="form-control contact-form__input"
+                          autocomplete="email"
+                          inputmode="email"
+                          required
+                          maxlength="254"
+                          placeholder="you@example.com"
+                          aria-required="true"
+                          aria-describedby="contact-email-error"
+                        >
+                        <span class="contact-form__error" id="contact-email-error" role="alert"></span>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="contact-form__field">
+                        <label for="contact-subject" class="contact-form__label">
+                          Subject <span class="contact-form__required" aria-hidden="true">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          name="subject"
+                          id="contact-subject"
+                          class="form-control contact-form__input"
+                          autocomplete="off"
+                          required
+                          minlength="3"
+                          maxlength="150"
+                          placeholder="What is this regarding?"
+                          aria-required="true"
+                          aria-describedby="contact-subject-error"
+                        >
+                        <span class="contact-form__error" id="contact-subject-error" role="alert"></span>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="contact-form__field">
+                        <label for="contact-message" class="contact-form__label">
+                          Message <span class="contact-form__required" aria-hidden="true">*</span>
+                        </label>
+                        <textarea
+                          name="message"
+                          id="contact-message"
+                          class="form-control contact-form__input contact-form__textarea"
+                          rows="6"
+                          required
+                          minlength="10"
+                          maxlength="5000"
+                          placeholder="Tell me about your project or question..."
+                          aria-required="true"
+                          aria-describedby="contact-message-error contact-message-hint"
+                        ></textarea>
+                        <span class="contact-form__hint" id="contact-message-hint">Minimum 10 characters</span>
+                        <span class="contact-form__error" id="contact-message-error" role="alert"></span>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="contact-form__status" id="contact-form-status" aria-live="polite">
+                        <div class="loading" id="contact-loading" hidden>
+                          <span class="loading__spinner" aria-hidden="true"></span>
+                          <span>Sending your message...</span>
+                        </div>
+                        <div class="error-message" id="contact-error" role="alert" aria-live="assertive" hidden></div>
+                      </div>
+
+                      <div class="contact-form__actions">
+                        <button type="submit" class="contact-form__submit" id="contact-submit">
+                          <span class="contact-form__submit-text">Send Message</span>
+                          <span class="contact-form__submit-loading" aria-hidden="true">
+                            <span class="loading__spinner"></span>
+                            Sending...
+                          </span>
+                        </button>
+                        <p class="contact-form__note" id="submit-help">
+                          Fields marked with <span aria-hidden="true">*</span> are required.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </form>
 
-                <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email-field" required="">
+              <div class="contact-form__success" id="contact-success" hidden role="status" aria-live="polite">
+                <div class="contact-form__success-icon" aria-hidden="true">
+                  <i class="bi bi-check-circle-fill"></i>
                 </div>
-
-                <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">Subject</label>
-                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
-                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
+                <h3 class="contact-form__success-title">Thank You for Reaching Out!</h3>
+                <p class="contact-form__success-text">
+                  Your message has been received successfully. I appreciate you taking the time to contact me and will get back to you as soon as possible, typically within 24–48 hours.
+                </p>
+                <button type="button" class="contact-form__reset" id="contact-reset">
+                  Send Another Message
+                </button>
               </div>
-            </form>
+            </div>
           </div><!-- End Contact Form -->
 
         </div>

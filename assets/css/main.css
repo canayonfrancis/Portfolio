@@ -1091,7 +1091,8 @@ section,
   color: var(--contrast-color);
 }
 
-.contact .php-email-form {
+.contact .php-email-form,
+.contact .contact-form-card {
   background-color: var(--surface-color);
   height: 100%;
   padding: 30px;
@@ -1099,14 +1100,18 @@ section,
 }
 
 @media (max-width: 575px) {
-  .contact .php-email-form {
+  .contact .php-email-form,
+  .contact .contact-form-card {
     padding: 20px;
   }
 }
 
 .contact .php-email-form input[type=text],
 .contact .php-email-form input[type=email],
-.contact .php-email-form textarea {
+.contact .php-email-form textarea,
+.contact .contact-form-card input[type=text],
+.contact .contact-form-card input[type=email],
+.contact .contact-form-card textarea {
   font-size: 14px;
   padding: 10px 15px;
   box-shadow: none;
@@ -1118,17 +1123,26 @@ section,
 
 .contact .php-email-form input[type=text]:focus,
 .contact .php-email-form input[type=email]:focus,
-.contact .php-email-form textarea:focus {
+.contact .php-email-form textarea:focus,
+.contact .contact-form-card input[type=text]:focus,
+.contact .contact-form-card input[type=email]:focus,
+.contact .contact-form-card textarea:focus {
   border-color: var(--accent-color);
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color), transparent 75%);
 }
 
 .contact .php-email-form input[type=text]::placeholder,
 .contact .php-email-form input[type=email]::placeholder,
-.contact .php-email-form textarea::placeholder {
+.contact .php-email-form textarea::placeholder,
+.contact .contact-form-card input[type=text]::placeholder,
+.contact .contact-form-card input[type=email]::placeholder,
+.contact .contact-form-card textarea::placeholder {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
-.contact .php-email-form button[type=submit] {
+.contact .php-email-form button[type=submit],
+.contact .contact-form-card button[type=submit] {
   color: var(--contrast-color);
   background: var(--accent-color);
   border: 0;
@@ -1137,8 +1151,225 @@ section,
   border-radius: 50px;
 }
 
-.contact .php-email-form button[type=submit]:hover {
+.contact .php-email-form button[type=submit]:hover,
+.contact .contact-form-card button[type=submit]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 25%);
+}
+
+/* Contact Form — enhanced Netlify form */
+.contact-form__honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.contact-form__label {
+  display: block;
+  font-family: var(--heading-font);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin-bottom: 8px;
+}
+
+.contact-form__required {
+  color: var(--accent-color);
+}
+
+.contact-form__field {
+  margin-bottom: 0;
+}
+
+.contact-form__input.contact-form__input--invalid {
+  border-color: #df1529 !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, #df1529, transparent 75%) !important;
+}
+
+.contact-form__error {
+  display: block;
+  min-height: 0;
+  font-size: 13px;
+  color: #df1529;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.contact-form__error:not(:empty) {
+  min-height: 1.25em;
+}
+
+.contact-form__hint {
+  display: block;
+  font-size: 12px;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  margin-top: 6px;
+}
+
+.contact-form__textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.contact-form__status {
+  margin-bottom: 16px;
+}
+
+.contact-form__status .loading:not([hidden]),
+.contact-form__status .error-message:not([hidden]) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.contact-form__status .loading {
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  color: var(--heading-color);
+}
+
+.contact-form__status .error-message {
+  background: #df1529;
+  color: #ffffff;
+  text-align: center;
+}
+
+.loading__spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--accent-color);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: php-email-form-loading 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+.contact-form__actions {
+  text-align: center;
+}
+
+.contact-form__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 180px;
+  min-height: 44px;
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  border: 0;
+  padding: 12px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--heading-font);
+  border-radius: 50px;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.contact-form__submit:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+.contact-form__submit:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color), transparent 60%);
+}
+
+.contact-form__submit:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.contact-form__submit.is-loading .contact-form__submit-text {
+  display: none;
+}
+
+.contact-form__submit.is-loading .contact-form__submit-loading {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-form__submit-loading {
+  display: none;
+}
+
+.contact-form__note {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: color-mix(in srgb, var(--default-color), transparent 35%);
+}
+
+.contact-form__success {
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.contact-form__success-icon {
+  font-size: 56px;
+  color: #059652;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.contact-form__success-title {
+  font-family: var(--heading-font);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin-bottom: 16px;
+}
+
+.contact-form__success-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--default-color), transparent 15%);
+  max-width: 420px;
+  margin: 0 auto 24px;
+}
+
+.contact-form__reset {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--heading-font);
+  color: var(--accent-color);
+  background: transparent;
+  border: 2px solid var(--accent-color);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.contact-form__reset:hover {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+}
+
+.contact-form__reset:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color), transparent 60%);
+}
+
+@media (max-width: 767px) {
+  .contact-form__success-title {
+    font-size: 20px;
+  }
+
+  .contact-form__submit {
+    width: 100%;
+  }
 }
 
 /*--------------------------------------------------------------

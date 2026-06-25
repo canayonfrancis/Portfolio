@@ -1,44 +1,188 @@
 /**
- * Netlify Forms — AJAX submission with existing php-email-form UI states.
+ * Netlify Forms — contact form with validation and accessible UI states.
  */
 (function () {
   "use strict";
 
-  document.querySelectorAll('form[data-netlify="true"]').forEach(function (form) {
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
+  const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-      const loading = form.querySelector(".loading");
-      const errorMessage = form.querySelector(".error-message");
-      const sentMessage = form.querySelector(".sent-message");
+  const rules = {
+    name: {
+      validate: function (value) {
+        const trimmed = value.trim();
+        if (!trimmed) return "Please enter your full name.";
+        if (trimmed.length < 2) return "Name must be at least 2 characters.";
+        return "";
+      },
+    },
+    email: {
+      validate: function (value) {
+        const trimmed = value.trim();
+        if (!trimmed) return "Please enter your email address.";
+        if (!EMAIL_PATTERN.test(trimmed)) return "Please enter a valid email address.";
+        return "";
+      },
+    },
+    subject: {
+      validate: function (value) {
+        const trimmed = value.trim();
+        if (!trimmed) return "Please enter a subject.";
+        if (trimmed.length < 3) return "Subject must be at least 3 characters.";
+        return "";
+      },
+    },
+    message: {
+      validate: function (value) {
+        const trimmed = value.trim();
+        if (!trimmed) return "Please enter your message.";
+        if (trimmed.length < 10) return "Message must be at least 10 characters.";
+        return "";
+      },
+    },
+  };
 
-      if (loading) loading.classList.add("d-block");
-      if (errorMessage) errorMessage.classList.remove("d-block");
-      if (sentMessage) sentMessage.classList.remove("d-block");
+  const form = document.getElementById("contact-form");
+  if (!form) return;
 
-      const formData = new FormData(form);
+  const formBody = document.getElementById("contact-form-body");
+  const successPanel = document.getElementById("contact-success");
+  const resetButton = document.getElementById("contact-reset");
+  const submitButton = document.getElementById("contact-submit");
+  const loadingBanner = document.getElementById("contact-loading");
+  const errorBanner = document.getElementById("contact-error");
 
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString(),
-      })
-        .then(function (response) {
-          if (!response.ok) {
-            throw new Error(response.status + " " + response.statusText);
-          }
-          if (loading) loading.classList.remove("d-block");
-          if (sentMessage) sentMessage.classList.add("d-block");
-          form.reset();
-        })
-        .catch(function () {
-          if (loading) loading.classList.remove("d-block");
-          if (errorMessage) {
-            errorMessage.textContent =
-              "Something went wrong. Please try again or email me directly at enzocans123@gmail.com.";
-            errorMessage.classList.add("d-block");
-          }
-        });
+  const fields = {
+    name: form.querySelector("#contact-name"),
+    email: form.querySelector("#contact-email"),
+    subject: form.querySelector("#contact-subject"),
+    message: form.querySelector("#contact-message"),
+  };
+
+  function getErrorElement(input) {
+    return document.getElementById(input.getAttribute("aria-describedby").split(" ")[0]);
+  }
+
+  function setFieldError(input, message) {
+    const errorEl = getErrorElement(input);
+    const isInvalid = Boolean(message);
+
+    input.classList.toggle("contact-form__input--invalid", isInvalid);
+    input.setAttribute("aria-invalid", isInvalid ? "true" : "false");
+    errorEl.textContent = message;
+  }
+
+  function clearFieldError(input) {
+    setFieldError(input, "");
+  }
+
+  function validateField(input) {
+    const rule = rules[input.name];
+    if (!rule) return true;
+
+    const message = rule.validate(input.value);
+    setFieldError(input, message);
+    return !message;
+  }
+
+  function validateForm() {
+    let isValid = true;
+    let firstInvalid = null;
+
+    Object.values(fields).forEach(function (input) {
+      if (!validateField(input)) {
+        isValid = false;
+        if (!firstInvalid) firstInvalid = input;
+      }
+    });
+
+    if (firstInvalid) firstInvalid.focus();
+    return isValid;
+  }
+
+  function setLoading(isLoading) {
+    form.setAttribute("aria-busy", isLoading ? "true" : "false");
+    submitButton.disabled = isLoading;
+    submitButton.classList.toggle("is-loading", isLoading);
+    loadingBanner.hidden = !isLoading;
+  }
+
+  function showError(message) {
+    errorBanner.textContent = message;
+    errorBanner.hidden = false;
+  }
+
+  function hideError() {
+    errorBanner.textContent = "";
+    errorBanner.hidden = true;
+  }
+
+  function showSuccess() {
+    form.hidden = true;
+    successPanel.hidden = false;
+    successPanel.querySelector(".contact-form__success-title").focus();
+  }
+
+  function resetForm() {
+    form.reset();
+    Object.values(fields).forEach(clearFieldError);
+    hideError();
+    setLoading(false);
+    successPanel.hidden = true;
+    form.hidden = false;
+    fields.name.focus();
+  }
+
+  Object.values(fields).forEach(function (input) {
+    input.addEventListener("blur", function () {
+      if (input.value.trim() || input.classList.contains("contact-form__input--invalid")) {
+        validateField(input);
+      }
+    });
+
+    input.addEventListener("input", function () {
+      if (input.classList.contains("contact-form__input--invalid")) {
+        validateField(input);
+      }
     });
   });
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    hideError();
+
+    if (!validateForm()) return;
+
+    setLoading(true);
+
+    const formData = new FormData(form);
+    formData.set("name", fields.name.value.trim());
+    formData.set("email", fields.email.value.trim());
+    formData.set("subject", fields.subject.value.trim());
+    formData.set("message", fields.message.value.trim());
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error("Submission failed");
+        }
+        setLoading(false);
+        showSuccess();
+      })
+      .catch(function () {
+        setLoading(false);
+        showError(
+          "Something went wrong while sending your message. Please try again or email me directly at enzocans123@gmail.com."
+        );
+      });
+  });
+
+  if (resetButton) {
+    resetButton.addEventListener("click", resetForm);
+  }
+
+  successPanel.querySelector(".contact-form__success-title").setAttribute("tabindex", "-1");
 })();
