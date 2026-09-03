@@ -32,6 +32,32 @@ The site now uses CSS variables for the warm off-white background, near-black te
 
 Accessibility work includes semantic landmarks, one H1, logical headings, a skip link, visible focus styles, large touch targets, keyboard-operable navigation and disclosures, ESC-to-close with focus return, menu focus containment, body scroll locking, form labels and errors, useful image alternatives, decorative-scene hiding, and global reduced-motion handling.
 
+## Cursor grid interaction
+
+`assets/js/cursor-grid.js` adds a progressive-enhancement scanner for fine-pointer desktop devices. One requestAnimationFrame loop interpolates the larger reveal at `0.14` smoothing and the small focal point at `0.38`, writes shared cursor and normalized coordinates to CSS variables, and stops once both layers settle. The loop is canceled when the document is hidden. No canvas or animation dependency is used for this interaction.
+
+The fixed grid uses layered CSS gradients and a multi-stop radial mask, so lines are visible only near the pointer and dissolve without a hard circular edge. The hero increases the grid, glow, and HUD intensity slightly. Project cards reuse the pointer coordinates relative to the active card for a local masked grid, radial illumination, and border-only highlight. The current card is the only element whose bounds are measured, and that cached measurement is cleared during scrolling or resizing.
+
+The system retains the native cursor, is `aria-hidden`, never receives pointer events, and does not affect keyboard focus. It is not initialized for touch/coarse pointers or when `prefers-reduced-motion: reduce` is active. A capability change disables or enables the listeners dynamically.
+
+### Cursor tuning controls
+
+Visual controls are grouped near the top of `assets/css/main.css` under “Cursor scanner — primary visual tuning controls.”
+
+| Setting | Control | Current value |
+| --- | --- | ---: |
+| Grid size | `--cursor-grid-size` | `42px` |
+| Grid opacity | `--cursor-grid-opacity` | `0.075` |
+| Reveal radius | `--cursor-reveal-radius` | `420px` |
+| Reveal falloff | `--cursor-reveal-falloff` | `92%` |
+| Glow intensity | `--cursor-glow-intensity` | `0.09` |
+| Cursor core size | `--cursor-core-size` | `5px` |
+| HUD opacity | `--cursor-hud-opacity` | `0.24` |
+| Card grid size | `--cursor-card-grid-size` | `38px` |
+| Card glow intensity | `--cursor-card-glow-intensity` | `0.13` |
+
+Cursor motion is controlled by `CURSOR_SMOOTHING` and `CORE_SMOOTHING` at the top of `assets/js/cursor-grid.js`. Lower cursor smoothing creates more trail; higher values make the grid catch up faster.
+
 ## Performance choices
 
 - No framework or third-party runtime was added.
@@ -41,6 +67,7 @@ Accessibility work includes semantic landmarks, one H1, logical headings, a skip
 - Kept responsive WebP sources, explicit image dimensions, asynchronous decoding, and below-the-fold lazy loading.
 - Limited the WebGL device-pixel ratio, particle count, and motion; paused it offscreen and while the document is hidden; and cleans up GPU resources on page exit.
 - Mobile and software-rendered environments use the complete CSS visual without WebGL to avoid expensive context/shader startup.
+- The cursor scanner updates only CSS variables, stops requestAnimationFrame work after settling, avoids full-screen blur filters, and is never initialized on touch or reduced-motion devices.
 
 ## Validation record
 
@@ -62,9 +89,12 @@ Accessibility work includes semantic landmarks, one H1, logical headings, a skip
 | Mobile menu, anchors, ESC, focus return, and scroll lock | PASS |
 | Form validation, success UI, and failure UI | PASS |
 | Reduced motion and WebGL fallback | PASS |
+| Cursor radial mask, smoothing, normalized coordinates, HUD, and click pulse | PASS |
+| Featured and compact project-card grid/border illumination | PASS |
+| Cursor behavior on touch and reduced-motion emulation | PASS — not initialized |
 | Horizontal overflow at 320, 375, 430, 768, 1024, 1280, 1440, and 1920 px | PASS — none |
-| Final local mobile Lighthouse | 99 Performance, 100 Accessibility, 100 Best Practices, 100 SEO |
-| Lighthouse lab metrics | FCP 1.2 s, LCP 1.9 s, TBT 0 ms, CLS 0 |
+| Current local mobile Lighthouse | 97 Performance, 100 Accessibility, 100 Best Practices, 100 SEO |
+| Lighthouse lab metrics | FCP 1.2 s, LCP 2.1 s, TBT 0 ms, CLS 0 |
 
 The Netlify development server correctly serves the site and configuration but returns HTTP 405 for local form POSTs. Form structure and all client-side states were validated locally; a real submission must be confirmed once after deployment in the Netlify dashboard. No production form message was sent during this work.
 
