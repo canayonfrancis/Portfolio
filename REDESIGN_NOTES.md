@@ -63,8 +63,8 @@ Accessibility work includes semantic landmarks, one H1, logical headings, a skip
 | Form validation, success UI, and failure UI | PASS |
 | Reduced motion and WebGL fallback | PASS |
 | Horizontal overflow at 320, 375, 430, 768, 1024, 1280, 1440, and 1920 px | PASS — none |
-| Final local mobile Lighthouse | 97 Performance, 100 Accessibility, 100 Best Practices, 100 SEO |
-| Lighthouse lab metrics | FCP 1.2 s, LCP 2.0 s, TBT 0 ms, CLS 0 |
+| Final local mobile Lighthouse | 99 Performance, 100 Accessibility, 100 Best Practices, 100 SEO |
+| Lighthouse lab metrics | FCP 1.2 s, LCP 1.9 s, TBT 0 ms, CLS 0 |
 
 The Netlify development server correctly serves the site and configuration but returns HTTP 405 for local form POSTs. Form structure and all client-side states were validated locally; a real submission must be confirmed once after deployment in the Netlify dashboard. No production form message was sent during this work.
 
