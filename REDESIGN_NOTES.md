@@ -28,7 +28,9 @@ The original section anchor IDs remain available where practical: `#portfolio`, 
 
 ## Design and accessibility system
 
-The site now uses CSS variables for the warm off-white background, near-black text, neutral grays, restrained blue accent, spacing, type scale, radii, shadows, and container widths. Typography uses an Inter-first local/system stack without a render-blocking remote font request. Layouts use responsive grids and `clamp()` sizing with breakpoints for wide desktop, tablet, and small mobile screens.
+The site now uses CSS variables for the warm off-white background, near-black text, neutral grays, restrained blue accent, spacing, type scale, radii, shadows, and container widths. Typography uses Sora for brand, content, navigation, headings, buttons, and body copy, with JetBrains Mono reserved for compact technical labels and metadata. One asynchronously preloaded Google Fonts stylesheet requests only Sora 400/500/600/700 and JetBrains Mono 400/500/600 with `display=swap`; a `noscript` stylesheet and system font tokens provide graceful fallbacks. Layouts use responsive grids and `clamp()` sizing with breakpoints for wide desktop, tablet, and small mobile screens.
+
+The hero name uses Sora at weight 600 with a tight architectural line-height, negative tracking, balanced wrapping, and a CSS uppercase treatment while retaining the correctly cased name in semantic HTML. The WordPress/WooCommerce role, availability state, section eyebrows, project metadata, service and credibility indexes, timeline dates and companies, stack labels, and selected interface metadata use JetBrains Mono as the quieter system layer. Paragraphs, project titles, navigation, controls, and other long-form content remain in Sora for readability.
 
 Accessibility work includes semantic landmarks, one H1, logical headings, a skip link, visible focus styles, large touch targets, keyboard-operable navigation and disclosures, ESC-to-close with focus return, menu focus containment, body scroll locking, form labels and errors, useful image alternatives, decorative-scene hiding, and global reduced-motion handling.
 
@@ -61,6 +63,7 @@ Cursor motion is controlled by `CURSOR_SMOOTHING` and `CORE_SMOOTHING` at the to
 ## Performance choices
 
 - No framework or third-party runtime was added.
+- Loads two font families through one preconnected, non-render-blocking Google Fonts request, limited to the seven weights used by the design and configured with `display=swap`.
 - Removed obsolete Bootstrap, AOS, icon-font, lightbox, isotope, swiper, typed-text, and related vendor files after confirming the redesigned pages no longer referenced them.
 - Removed four superseded photographic hero variants; all portfolio screenshots and the existing portrait were retained.
 - Reduced the `assets` directory from approximately 13 MB before this redesign to approximately 2.3 MB.
@@ -92,9 +95,10 @@ Cursor motion is controlled by `CURSOR_SMOOTHING` and `CORE_SMOOTHING` at the to
 | Cursor radial mask, smoothing, normalized coordinates, HUD, and click pulse | PASS |
 | Featured and compact project-card grid/border illumination | PASS |
 | Cursor behavior on touch and reduced-motion emulation | PASS — not initialized |
+| Sora / JetBrains Mono delivery | PASS — all requested weights; two subsetted WOFF2 files, no failed requests |
 | Horizontal overflow at 320, 375, 430, 768, 1024, 1280, 1440, and 1920 px | PASS — none |
-| Current local mobile Lighthouse | 97 Performance, 100 Accessibility, 100 Best Practices, 100 SEO |
-| Lighthouse lab metrics | FCP 1.2 s, LCP 2.1 s, TBT 0 ms, CLS 0 |
+| Current local mobile Lighthouse | 99 Performance, 100 Accessibility, 100 Best Practices, 100 SEO |
+| Lighthouse lab metrics | FCP 1.2 s, LCP 2.1 s, TBT 0 ms, CLS 0.004 |
 
 The Netlify development server correctly serves the site and configuration but returns HTTP 405 for local form POSTs. Form structure and all client-side states were validated locally; a real submission must be confirmed once after deployment in the Netlify dashboard. No production form message was sent during this work.
 

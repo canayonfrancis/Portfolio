@@ -17,7 +17,7 @@ The site was redesigned as a dependency-free static portfolio centered on WordPr
 
 The new page keeps one full-name H1, brings selected work near the top, exposes meaningful experience and service copy in static HTML, and adds a lightweight CSS/WebGL development visual with reduced-motion and static fallbacks. Obsolete template libraries and superseded photographic hero files were removed after reference checks. Current implementation and validation details are recorded in `REDESIGN_NOTES.md`.
 
-Current local mobile Lighthouse after the decorative cursor-grid enhancement: Performance 97, Accessibility 100, Best Practices 100, SEO 100; FCP 1.2 s, LCP 2.1 s, TBT 0 ms, and CLS 0. Production results may vary and remain a post-deploy verification item.
+Current local mobile Lighthouse after the cursor-grid and Sora/JetBrains Mono typography enhancements: Performance 99, Accessibility 100, Best Practices 100, SEO 100; FCP 1.2 s, LCP 2.1 s, TBT 0 ms, and CLS 0.004. Production results may vary and remain a post-deploy verification item.
 
 ## Baseline
 
