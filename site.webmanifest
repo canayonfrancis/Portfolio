@@ -1,0 +1,21 @@
+{
+  "name": "Francis Lawrenz Canayon Portfolio",
+  "short_name": "Francis Canayon",
+  "description": "Official portfolio of Francis Lawrenz Canayon, WordPress and WooCommerce Developer.",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "background_color": "#ffffff",
+  "theme_color": "#040b14",
+  "icons": [
+    {
+      "src": "/assets/img/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
