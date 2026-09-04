@@ -14,7 +14,7 @@ The SEO implementation already included a descriptive title and meta description
 
 - Replaced the permanent résumé sidebar with a sticky top navigation and accessible full-screen mobile menu.
 - Rebuilt the hero around the primary positioning, “Francis Lawrenz Canayon — WordPress & WooCommerce Developer.”
-- Added a programmatic browser/workspace illustration with restrained CSS depth and an optional native WebGL particle layer. The complete CSS illustration is the fallback when WebGL is unavailable, software-rendered, reduced for mobile, or running in an automated audit.
+- Added a programmatic 3D website-development workspace rendered with native WebGL: a layered browser interface, physical content surfaces, WordPress, WooCommerce, custom-code and performance modules, connection curves, a perspective grid, orbit, restrained particles, directional/ambient shading, and generated interface-label textures. The complete DOM/CSS illustration remains the immediate fallback when WebGL is unavailable, software-rendered, reduced-motion, or running in an automated audit.
 - Moved selected portfolio work directly after the credibility strip and created four larger editorial project cards from documented work.
 - Preserved all 27 existing project screenshot sets and reorganized the remaining 23 projects into a responsive archive with progressive disclosure.
 - Converted existing capabilities into focused WordPress, WooCommerce, performance/reliability, and content/integration services.
@@ -68,8 +68,8 @@ Cursor motion is controlled by `CURSOR_SMOOTHING` and `CORE_SMOOTHING` at the to
 - Removed four superseded photographic hero variants; all portfolio screenshots and the existing portrait were retained.
 - Reduced the `assets` directory from approximately 13 MB before this redesign to approximately 2.3 MB.
 - Kept responsive WebP sources, explicit image dimensions, asynchronous decoding, and below-the-fold lazy loading.
-- Limited the WebGL device-pixel ratio, particle count, and motion; paused it offscreen and while the document is hidden; and cleans up GPU resources on page exit.
-- Mobile and software-rendered environments use the complete CSS visual without WebGL to avoid expensive context/shader startup.
+- Limited the WebGL device-pixel ratio, particle count, geometry, and motion; mobile is capped at `1.25x` pixel density and approximately 30 fps with one module omitted. Rendering pauses offscreen and while the document is hidden, and all buffers, programs, shaders, and generated textures are released on page exit.
+- Software-rendered, automated-audit, no-WebGL, context-loss, and reduced-motion environments use the complete CSS visual instead of leaving the hero empty.
 - The cursor scanner updates only CSS variables, stops requestAnimationFrame work after settling, avoids full-screen blur filters, and is never initialized on touch or reduced-motion devices.
 
 ## Validation record
@@ -91,14 +91,16 @@ Cursor motion is controlled by `CURSOR_SMOOTHING` and `CORE_SMOOTHING` at the to
 | Missing URL | PASS — HTTP 404 |
 | Mobile menu, anchors, ESC, focus return, and scroll lock | PASS |
 | Form validation, success UI, and failure UI | PASS |
-| Reduced motion and WebGL fallback | PASS |
+| Hardware WebGL scene, pointer parallax, module hover, and native-scroll response | PASS — Chrome 152 / Apple M2 Metal |
+| Mobile WebGL scene | PASS — three modules, `1.25x` DPR cap, approximately 30 fps |
+| Reduced motion, no-WebGL, software-renderer, and automated-audit fallbacks | PASS — complete static visual retained |
 | Cursor radial mask, smoothing, normalized coordinates, HUD, and click pulse | PASS |
 | Featured and compact project-card grid/border illumination | PASS |
 | Cursor behavior on touch and reduced-motion emulation | PASS — not initialized |
 | Sora / JetBrains Mono delivery | PASS — all requested weights; two subsetted WOFF2 files, no failed requests |
 | Horizontal overflow at 320, 375, 430, 768, 1024, 1280, 1440, and 1920 px | PASS — none |
 | Current local mobile Lighthouse | 99 Performance, 100 Accessibility, 100 Best Practices, 100 SEO |
-| Lighthouse lab metrics | FCP 1.2 s, LCP 2.1 s, TBT 0 ms, CLS 0.004 |
+| Lighthouse lab metrics | FCP 1.2 s, LCP 2.2 s, TBT 0 ms, CLS 0.004 |
 
 The Netlify development server correctly serves the site and configuration but returns HTTP 405 for local form POSTs. Form structure and all client-side states were validated locally; a real submission must be confirmed once after deployment in the Netlify dashboard. No production form message was sent during this work.
 
