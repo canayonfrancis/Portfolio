@@ -82,7 +82,7 @@
 
   <header class="site-header" data-site-header>
     <div class="container nav-shell">
-      <a class="brand" href="#hero" aria-label="Francis Lawrenz Canayon — home">Francis Portfolio<span>.</span></a>
+      <a class="brand" href="#hero" aria-label="Francis Lawrenz Canayon — home">Francis       <span>.</span></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation" data-nav-toggle><span></span><span></span></button>
       <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation" data-nav>
         <a href="#portfolio">Work</a><a href="#services">Services</a><a href="#resume">Experience</a><a href="#about">About</a><a href="#contact">Contact</a>
@@ -119,37 +119,119 @@
       </div>
     </section>
 
-    <section class="credibility" aria-label="Professional highlights">
-      <div class="container credibility-grid">
-        <div><span>01</span><strong>WordPress specialist</strong><small>Development &amp; customization</small></div>
-        <div><span>02</span><strong>WooCommerce support</strong><small>Stores &amp; custom functionality</small></div>
-        <div><span>03</span><strong>Performance minded</strong><small>Usability &amp; reliability</small></div>
-        <div><span>04</span><strong>Remote ready</strong><small>Businesses &amp; agency teams</small></div>
+    <section class="credibility" aria-labelledby="credibility-title">
+      <div class="container credibility-shell">
+        <div class="credibility-header">
+          <p class="credibility-kicker" aria-hidden="true"><span>//</span> What I do <i></i></p>
+          <p class="credibility-range" aria-hidden="true">[ 01 — 04 ]</p>
+          <h2 class="visually-hidden" id="credibility-title">What I do</h2>
+        </div>
+
+        <div class="credibility-grid">
+          <article class="credibility-card">
+            <div class="credibility-card-top">
+              <div class="credibility-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="m17 14-10 10 10 10M31 14l10 10-10 10M28 7 20 41"/></svg>
+              </div>
+              <span class="credibility-index">01</span>
+            </div>
+            <a class="credibility-link" href="#services"><h3>WordPress Development</h3><span aria-hidden="true">→</span></a>
+            <p>Custom, scalable, and high-performing WordPress websites.</p>
+          </article>
+
+          <article class="credibility-card">
+            <div class="credibility-card-top">
+              <div class="credibility-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="M7 10h5l4.5 22h21l4-16H14M21 39.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0ZM37 39.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"/></svg>
+              </div>
+              <span class="credibility-index">02</span>
+            </div>
+            <a class="credibility-link" href="#services"><h3>WooCommerce Solutions</h3><span aria-hidden="true">→</span></a>
+            <p>Conversion-focused online stores that grow your business.</p>
+          </article>
+
+          <article class="credibility-card">
+            <div class="credibility-card-top">
+              <div class="credibility-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="m24 6 17 9-17 9L7 15l17-9ZM7 24l17 9 17-9M7 33l17 9 17-9"/></svg>
+              </div>
+              <span class="credibility-index">03</span>
+            </div>
+            <a class="credibility-link" href="#services"><h3>Website Design</h3><span aria-hidden="true">→</span></a>
+            <p>Clean, modern, and user-centered designs.</p>
+          </article>
+
+          <article class="credibility-card">
+            <div class="credibility-card-top">
+              <div class="credibility-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="M20.5 6h7l1.3 5.3a14.5 14.5 0 0 1 3.3 1.9l5.2-1.5 3.5 6-4 3.8a14.8 14.8 0 0 1 0 3.8l4 3.8-3.5 6-5.2-1.5a14.5 14.5 0 0 1-3.3 1.9l-1.3 5.5h-7l-1.3-5.5a14.5 14.5 0 0 1-3.3-1.9l-5.2 1.5-3.5-6 4-3.8a14.8 14.8 0 0 1 0-3.8l-4-3.8 3.5-6 5.2 1.5a14.5 14.5 0 0 1 3.3-1.9L20.5 6Z"/><circle cx="24" cy="23.4" r="6"/></svg>
+              </div>
+              <span class="credibility-index">04</span>
+            </div>
+            <a class="credibility-link" href="#services"><h3>Maintenance &amp; Support</h3><span aria-hidden="true">→</span></a>
+            <p>Keep your website fast, secure, and up to date.</p>
+          </article>
+        </div>
+
+        <div class="credibility-footer" aria-hidden="true">
+          <div class="credibility-pagination"><i></i><i></i><i></i></div>
+          <span class="credibility-rule"></span>
+          <p>Build <b>/</b> Design <b>/</b> Optimize <b>/</b> Grow</p>
+        </div>
       </div>
+      <span class="credibility-cross" aria-hidden="true"></span>
     </section>
 
     <section class="section featured-work" id="portfolio" aria-labelledby="work-title">
-      <div class="container">
-        <div class="section-heading" data-reveal><div><p class="eyebrow">Selected work</p><h2 id="work-title">WordPress work built for real businesses.</h2></div><p>Selected website projects spanning development, maintenance, content operations, performance, and ongoing technical support.</p></div>
+      <div class="container featured-shell">
+        <div class="featured-heading" data-reveal>
+          <p class="featured-kicker"><i aria-hidden="true"></i> Selected work <span aria-hidden="true"></span></p>
+          <p class="featured-range" aria-hidden="true">| 01 — 04 |</p>
+          <h2 id="work-title">WordPress work built<br>for real businesses.</h2>
+          <p class="featured-intro">Selected website projects spanning development, maintenance, content operations, performance, and ongoing technical support.</p>
+        </div>
+
         <div class="featured-list">
           <article class="featured-project" data-reveal>
-            <a class="featured-media" href="https://www.bluecardinalchemical.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit the Blue Cardinal Chemical website"><img src="/assets/img/portfolio/product-24-1200.webp" srcset="/assets/img/portfolio/product-24-480.webp 480w, /assets/img/portfolio/product-24-800.webp 800w, /assets/img/portfolio/product-24-1200.webp 1200w" sizes="(max-width: 899px) 100vw, 58vw" width="1897" height="926" loading="lazy" decoding="async" alt="Screenshot of the Blue Cardinal Chemical WordPress website"></a>
+            <a class="featured-media" href="https://www.bluecardinalchemical.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit the Blue Cardinal Chemical website">
+              <span class="project-browser-bar" aria-hidden="true"><i></i><i></i><i></i><b>⌕</b><small>https://www.bluecardinalchemical.com</small></span>
+              <img src="/assets/img/portfolio/product-24-1200.webp" srcset="/assets/img/portfolio/product-24-480.webp 480w, /assets/img/portfolio/product-24-800.webp 800w, /assets/img/portfolio/product-24-1200.webp 1200w" sizes="(max-width: 899px) 100vw, 52vw" width="1897" height="926" loading="lazy" decoding="async" alt="Screenshot of the Blue Cardinal Chemical WordPress website">
+            </a>
             <div class="featured-copy"><p class="project-number">01 / WordPress development</p><h3>Blue Cardinal Chemical</h3><p>Managed and maintained the company WordPress website, developed theme and plugin customizations, integrated third-party APIs, and improved speed, usability, and ongoing site reliability.</p><ul class="tag-list" aria-label="Project capabilities"><li>WordPress</li><li>API integrations</li><li>Performance</li></ul><a class="text-link" href="https://www.bluecardinalchemical.com/" target="_blank" rel="noopener noreferrer">Visit website <span aria-hidden="true">↗</span></a></div>
+            <div class="project-rail" aria-hidden="true"><span>01</span><i></i><small>Real business results</small></div>
           </article>
+
           <article class="featured-project" data-reveal>
-            <a class="featured-media" href="https://www.agmtechnology.com.au/" target="_blank" rel="noopener noreferrer" aria-label="Visit the AGM Technology website"><img src="/assets/img/portfolio/product-25-1200.webp" srcset="/assets/img/portfolio/product-25-480.webp 480w, /assets/img/portfolio/product-25-800.webp 800w, /assets/img/portfolio/product-25-1200.webp 1200w" sizes="(max-width: 899px) 100vw, 58vw" width="1898" height="925" loading="lazy" decoding="async" alt="Screenshot of the AGM Technology WordPress website"></a>
+            <a class="featured-media" href="https://www.agmtechnology.com.au/" target="_blank" rel="noopener noreferrer" aria-label="Visit the AGM Technology website">
+              <span class="project-browser-bar" aria-hidden="true"><i></i><i></i><i></i><b>⌕</b><small>https://www.agmtechnology.com</small></span>
+              <img src="/assets/img/portfolio/product-25-1200.webp" srcset="/assets/img/portfolio/product-25-480.webp 480w, /assets/img/portfolio/product-25-800.webp 800w, /assets/img/portfolio/product-25-1200.webp 1200w" sizes="(max-width: 899px) 100vw, 52vw" width="1898" height="925" loading="lazy" decoding="async" alt="Screenshot of the AGM Technology WordPress website">
+            </a>
             <div class="featured-copy"><p class="project-number">02 / Website project</p><h3>AGM Technology</h3><p>Built the company website from design implementation through full functionality, with responsive layouts, custom WordPress solutions, and performance-focused delivery.</p><ul class="tag-list" aria-label="Project capabilities"><li>WordPress</li><li>Web design</li><li>Performance</li></ul><a class="text-link" href="https://www.agmtechnology.com.au/" target="_blank" rel="noopener noreferrer">Visit website <span aria-hidden="true">↗</span></a></div>
+            <div class="project-rail" aria-hidden="true"><span>02</span><i></i><small>Modern scalable websites</small></div>
           </article>
+
           <article class="featured-project" data-reveal>
-            <a class="featured-media" href="https://blueedgebusiness.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit the Blue Edge Business Solutions website"><img src="/assets/img/portfolio/product-8-1200.webp" srcset="/assets/img/portfolio/product-8-480.webp 480w, /assets/img/portfolio/product-8-800.webp 800w, /assets/img/portfolio/product-8-1200.webp 1200w" sizes="(max-width: 899px) 100vw, 58vw" width="1903" height="925" loading="lazy" decoding="async" alt="Screenshot of the Blue Edge Business Solutions WordPress website"></a>
+            <a class="featured-media" href="https://blueedgebusiness.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit the Blue Edge Business Solutions website">
+              <span class="project-browser-bar" aria-hidden="true"><i></i><i></i><i></i><b>⌕</b><small>https://www.blueedgebusiness.com</small></span>
+              <img src="/assets/img/portfolio/product-8-1200.webp" srcset="/assets/img/portfolio/product-8-480.webp 480w, /assets/img/portfolio/product-8-800.webp 800w, /assets/img/portfolio/product-8-1200.webp 1200w" sizes="(max-width: 899px) 100vw, 52vw" width="1903" height="925" loading="lazy" decoding="async" alt="Screenshot of the Blue Edge Business Solutions WordPress website">
+            </a>
             <div class="featured-copy"><p class="project-number">03 / WordPress &amp; hosting</p><h3>Blue Edge Business Solutions</h3><p>Built and maintained WordPress websites, customized themes and plugins, managed hosting environments, improved performance, and provided ongoing technical support.</p><ul class="tag-list" aria-label="Project capabilities"><li>WordPress</li><li>Customization</li><li>Hosting</li></ul><a class="text-link" href="https://blueedgebusiness.com/" target="_blank" rel="noopener noreferrer">Visit website <span aria-hidden="true">↗</span></a></div>
+            <div class="project-rail" aria-hidden="true"><span>03</span><i></i><small>Stronger brands online</small></div>
           </article>
+
           <article class="featured-project" data-reveal>
-            <a class="featured-media" href="https://southerninnovationroofing.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit the Southern Innovation Roofing Company website"><img src="/assets/img/portfolio/product-26-1200.webp" srcset="/assets/img/portfolio/product-26-480.webp 480w, /assets/img/portfolio/product-26-800.webp 800w, /assets/img/portfolio/product-26-1200.webp 1200w" sizes="(max-width: 899px) 100vw, 58vw" width="1898" height="924" loading="lazy" decoding="async" alt="Screenshot of the Southern Innovation Roofing Company website"></a>
+            <a class="featured-media" href="https://southerninnovationroofing.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit the Southern Innovation Roofing Company website">
+              <span class="project-browser-bar" aria-hidden="true"><i></i><i></i><i></i><b>⌕</b><small>https://www.southerninnovationroofing.com</small></span>
+              <img src="/assets/img/portfolio/product-26-1200.webp" srcset="/assets/img/portfolio/product-26-480.webp 480w, /assets/img/portfolio/product-26-800.webp 800w, /assets/img/portfolio/product-26-1200.webp 1200w" sizes="(max-width: 899px) 100vw, 52vw" width="1898" height="924" loading="lazy" decoding="async" alt="Screenshot of the Southern Innovation Roofing Company website">
+            </a>
             <div class="featured-copy"><p class="project-number">04 / Content &amp; website operations</p><h3>Southern Innovation Roofing</h3><p>Managed website content, tested functionality across devices, created SEO-focused service and landing content, and recommended usability and performance improvements.</p><ul class="tag-list" aria-label="Project capabilities"><li>WordPress</li><li>Content</li><li>SEO</li></ul><a class="text-link" href="https://southerninnovationroofing.com/" target="_blank" rel="noopener noreferrer">Visit website <span aria-hidden="true">↗</span></a></div>
+            <div class="project-rail" aria-hidden="true"><span>04</span><i></i><small>Content drives growth</small></div>
           </article>
         </div>
+
+        <div class="featured-footer" aria-hidden="true"><p><i></i> Let's build something great together</p><span></span><p>Websites / Brands / Performance / Growth</p></div>
       </div>
+      <div class="featured-side-note" aria-hidden="true"><i></i><p>Build<br>Improve<br>Support</p></div>
     </section>
 
     <section class="section services" id="services" aria-labelledby="services-title">
@@ -165,33 +247,110 @@
     </section>
 
     <section class="section experience" id="resume" aria-labelledby="experience-title">
-      <div class="container">
-        <div class="section-heading" data-reveal><div><p class="eyebrow">Experience</p><h2 id="experience-title">A track record of hands-on website work.</h2></div><p>Roles across development, maintenance, content operations, performance, hosting, and front-end implementation.</p></div>
+      <div class="container experience-shell">
+        <div class="experience-heading" data-reveal>
+          <p class="experience-kicker"><i aria-hidden="true"></i> Experience <span aria-hidden="true"></span></p>
+          <p class="experience-range" aria-hidden="true">| 02 — 04 |</p>
+          <h2 id="experience-title">A track record of<br> hands-on website<br> work.</h2>
+          <p class="experience-intro">Roles across development, maintenance, content operations, performance, hosting, and front-end implementation.</p>
+        </div>
+
         <div class="experience-layout">
           <div class="timeline" data-reveal>
-            <article class="timeline-item"><div class="timeline-date">Dec 2025 — Jun 2026</div><div class="timeline-content"><p class="timeline-company">Southern Innovation Roofing Company · Part-time</p><h3>WordPress Content Manager</h3><p>Website content management, cross-device testing, SEO-focused content, and improvement recommendations.</p><details><summary>View responsibilities</summary><ul><li>Updated and maintained content across multiple client websites while ensuring accuracy and consistency.</li><li>Tested functionality, usability, and display across devices and browsers.</li><li>Wrote and optimized service pages, blog posts, and landing pages.</li><li>Recommended content, UX, and website improvements.</li><li>Collaborated with team members on performance, functionality, and engagement.</li></ul></details></div></article>
-            <article class="timeline-item"><div class="timeline-date">2025 — 2026</div><div class="timeline-content"><p class="timeline-company">Blue Cardinal Chemical · Part-time</p><h3>WordPress Developer</h3><p>WordPress development, maintenance, customizations, API integrations, and performance support.</p><details><summary>View responsibilities</summary><ul><li>Managed and maintained the WordPress website for performance, security, and functionality.</li><li>Developed and customized themes and plugins around business requirements.</li><li>Integrated third-party APIs and implemented SEO best practices.</li><li>Improved speed, user experience, and overall site performance.</li><li>Handled content updates, troubleshooting, and technical enhancements.</li></ul></details></div></article>
-            <article class="timeline-item"><div class="timeline-date">Jul 2025 — Aug 2025</div><div class="timeline-content"><p class="timeline-company">AGM Technology · Website project</p><h3>WordPress Developer / Web Page Designer</h3><p>Ground-up WordPress website implementation, custom solutions, responsive design, and performance work.</p><details><summary>View responsibilities</summary><ul><li>Led development and maintenance of the company website.</li><li>Built the website from design implementation through full functionality.</li><li>Developed custom WordPress solutions for business requirements.</li><li>Created responsive layouts and intuitive navigation.</li><li>Optimized performance, security, and scalability.</li></ul></details></div></article>
-            <article class="timeline-item"><div class="timeline-date">Nov 2024 — Dec 2025</div><div class="timeline-content"><p class="timeline-company">Hang Ten Marketing / Website In A Flash · Full-time</p><h3>WordPress Developer</h3><p>Lead WordPress development, feature work, technical troubleshooting, and client collaboration.</p><details><summary>View responsibilities</summary><ul><li>Oversaw website improvements and technical implementations as Lead WordPress Developer.</li><li>Diagnosed and resolved website issues.</li><li>Implemented features and enhancements based on client requirements.</li><li>Improved website performance, usability, and user experience.</li><li>Collaborated with clients and team members on effective website solutions.</li></ul></details></div></article>
-            <article class="timeline-item"><div class="timeline-date">2023 — 2024</div><div class="timeline-content"><p class="timeline-company">3GC Group / Pandoblox · Full-time</p><h3>Senior WordPress Developer</h3><p>Custom plugins, website enhancements, hosting environments, and ongoing technical solutions.</p><details><summary>View responsibilities</summary><ul><li>Developed custom WordPress plugins for client and business needs.</li><li>Maintained and enhanced existing WordPress websites.</li><li>Created and improved pages, features, and functionality.</li><li>Configured hosting and server environments.</li><li>Provided technical solutions and support for website operations.</li></ul></details></div></article>
-            <article class="timeline-item"><div class="timeline-date">2021 — 2023</div><div class="timeline-content"><p class="timeline-company">Blue Edge Business Solutions · Full-time</p><h3>WordPress Developer</h3><p>Website builds, theme customization, hosting management, performance, and ongoing support.</p><details><summary>View responsibilities</summary><ul><li>Built and maintained WordPress websites for functionality and reliability.</li><li>Customized themes and implemented plugin-based features.</li><li>Managed hosting servers, website security, and uptime.</li><li>Optimized speed and resolved technical issues.</li><li>Provided ongoing website and hosting support.</li></ul></details></div></article>
-            <article class="timeline-item"><div class="timeline-date">2019 — 2021</div><div class="timeline-content"><p class="timeline-company">Netfone · Full-time</p><h3>Front-end Developer</h3><p>Responsive interfaces, functional web pages, usability improvements, and cross-browser implementation.</p><details><summary>View responsibilities</summary><ul><li>Developed and maintained responsive website interfaces.</li><li>Translated concepts into functional, visually clear web pages.</li><li>Implemented features with HTML, CSS, JavaScript, and related technologies.</li><li>Improved usability, performance, and cross-browser compatibility.</li><li>Collaborated on design, functionality, and engagement improvements.</li></ul></details></div></article>
+            <article class="timeline-item">
+              <div class="timeline-date"><span>Dec 2025 —</span><span>Jun 2026</span></div>
+              <div class="timeline-content"><p class="timeline-company">Southern Innovation Roofing Company · Part-time</p><h3>WordPress Content Manager</h3><p>Website content management, cross-device testing, SEO-focused content, and improvement recommendations.</p><details><summary>View responsibilities <span aria-hidden="true">↗</span></summary><ul><li>Updated and maintained content across multiple client websites while ensuring accuracy and consistency.</li><li>Tested functionality, usability, and display across devices and browsers.</li><li>Wrote and optimized service pages, blog posts, and landing pages.</li><li>Recommended content, UX, and website improvements.</li><li>Collaborated with team members on performance, functionality, and engagement.</li></ul></details></div>
+              <div class="timeline-code" aria-hidden="true"><span>01</span><i></i><small>Content<br>SEO<br>Growth</small></div>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-date"><span>2025 — 2026</span></div>
+              <div class="timeline-content"><p class="timeline-company">Blue Cardinal Chemical · Part-time</p><h3>WordPress Developer</h3><p>WordPress development, maintenance, customizations, API integrations, and performance support.</p><details><summary>View responsibilities <span aria-hidden="true">↗</span></summary><ul><li>Managed and maintained the WordPress website for performance, security, and functionality.</li><li>Developed and customized themes and plugins around business requirements.</li><li>Integrated third-party APIs and implemented SEO best practices.</li><li>Improved speed, user experience, and overall site performance.</li><li>Handled content updates, troubleshooting, and technical enhancements.</li></ul></details></div>
+              <div class="timeline-code" aria-hidden="true"><span>02</span><i></i><small>Develop<br>Integrate<br>Optimize</small></div>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-date"><span>Jul 2025 —</span><span>Aug 2025</span></div>
+              <div class="timeline-content"><p class="timeline-company">AGM Technology · Website project</p><h3>WordPress Developer / Web Page Designer</h3><p>Ground-up WordPress website implementation, custom solutions, responsive design, and performance work.</p><details><summary>View responsibilities <span aria-hidden="true">↗</span></summary><ul><li>Led development and maintenance of the company website.</li><li>Built the website from design implementation through full functionality.</li><li>Developed custom WordPress solutions for business requirements.</li><li>Created responsive layouts and intuitive navigation.</li><li>Optimized performance, security, and scalability.</li></ul></details></div>
+              <div class="timeline-code" aria-hidden="true"><span>03</span><i></i><small>Design<br>Develop<br>Launch</small></div>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-date"><span>Nov 2024 —</span><span>Dec 2025</span></div>
+              <div class="timeline-content"><p class="timeline-company">Hang Ten Marketing / Website In A Flash · Full-time</p><h3>WordPress Developer</h3><p>Lead WordPress development, feature work, technical troubleshooting, and client collaboration.</p><details><summary>View responsibilities <span aria-hidden="true">↗</span></summary><ul><li>Oversaw website improvements and technical implementations as Lead WordPress Developer.</li><li>Diagnosed and resolved website issues.</li><li>Implemented features and enhancements based on client requirements.</li><li>Improved website performance, usability, and user experience.</li><li>Collaborated with clients and team members on effective website solutions.</li></ul></details></div>
+              <div class="timeline-code" aria-hidden="true"><span>04</span><i></i><small>Lead<br>Troubleshoot<br>Collaborate</small></div>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-date"><span>2023 — 2024</span></div>
+              <div class="timeline-content"><p class="timeline-company">3GC Group / Pandoblox · Full-time</p><h3>Senior WordPress Developer</h3><p>Custom plugins, website enhancements, hosting environments, and ongoing technical solutions.</p><details><summary>View responsibilities <span aria-hidden="true">↗</span></summary><ul><li>Developed custom WordPress plugins for client and business needs.</li><li>Maintained and enhanced existing WordPress websites.</li><li>Created and improved pages, features, and functionality.</li><li>Configured hosting and server environments.</li><li>Provided technical solutions and support for website operations.</li></ul></details></div>
+              <div class="timeline-code" aria-hidden="true"><span>05</span><i></i><small>Plugins<br>Enhance<br>Support</small></div>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-date"><span>2021 — 2023</span></div>
+              <div class="timeline-content"><p class="timeline-company">Blue Edge Business Solutions · Full-time</p><h3>WordPress Developer</h3><p>Website builds, theme customization, hosting management, performance, and ongoing support.</p><details><summary>View responsibilities <span aria-hidden="true">↗</span></summary><ul><li>Built and maintained WordPress websites for functionality and reliability.</li><li>Customized themes and implemented plugin-based features.</li><li>Managed hosting servers, website security, and uptime.</li><li>Optimized speed and resolved technical issues.</li><li>Provided ongoing website and hosting support.</li></ul></details></div>
+              <div class="timeline-code" aria-hidden="true"><span>06</span><i></i><small>Build<br>Customize<br>Maintain</small></div>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-date"><span>2019 — 2021</span></div>
+              <div class="timeline-content"><p class="timeline-company">Netfone · Full-time</p><h3>Front-end Developer</h3><p>Responsive interfaces, functional web pages, usability improvements, and cross-browser implementation.</p><details><summary>View responsibilities <span aria-hidden="true">↗</span></summary><ul><li>Developed and maintained responsive website interfaces.</li><li>Translated concepts into functional, visually clear web pages.</li><li>Implemented features with HTML, CSS, JavaScript, and related technologies.</li><li>Improved usability, performance, and cross-browser compatibility.</li><li>Collaborated on design, functionality, and engagement improvements.</li></ul></details></div>
+              <div class="timeline-code" aria-hidden="true"><span>07</span><i></i><small>Front-end<br>Interfaces<br>Usability</small></div>
+            </article>
           </div>
-          <aside class="education-card" data-reveal aria-labelledby="education-title"><p class="eyebrow">Education</p><h3 id="education-title">Bachelor of Science in Information Technology</h3><p>PHINMA Cagayan de Oro College</p><p class="education-meta">2021 — 2025 · Cagayan de Oro City, Philippines</p><details><summary>Earlier education</summary><div class="earlier-education"><p><strong>Junior High School</strong><br>2019 — 2021 · Iligan City East National High School</p><p><strong>Junior High School</strong><br>2015 — 2019 · Iligan City East National High School</p><p><strong>Elementary School</strong><br>2009 — 2015 · Acmac Elementary School</p></div></details></aside>
+
+          <aside class="education-card" data-reveal aria-labelledby="education-title">
+            <div class="education-card-header"><p>Education</p><span aria-hidden="true"><svg viewBox="0 0 32 32"><path d="m3 12 13-7 13 7-13 7-13-7Zm5 3.5V22c4.8 3.7 11.2 3.7 16 0v-6.5M28 13v9"/></svg></span></div>
+            <h3 id="education-title">Bachelor of Science in Information Technology</h3>
+            <p>PHINMA Cagayan de Oro College</p>
+            <p class="education-meta">2021 — 2025 · Cagayan de Oro City, Philippines</p>
+            <details><summary>Earlier education</summary><div class="earlier-education"><p><strong>Junior High School</strong><br>2019 — 2021 · Iligan City East National High School</p><p><strong>Junior High School</strong><br>2015 — 2019 · Iligan City East National High School</p><p><strong>Elementary School</strong><br>2009 — 2015 · Acmac Elementary School</p></div></details>
+          </aside>
         </div>
+
+        <div class="experience-footer" aria-hidden="true"><p><i></i> Let's build something great together</p><span></span><p>Experience / Skills / Projects / Contact</p></div>
       </div>
+      <div class="experience-side-note" aria-hidden="true"><i></i><p>Build<br>Improve<br>Maintain<br>Grow</p></div>
+      <div class="experience-orbit experience-orbit-top" aria-hidden="true"></div>
+      <div class="experience-orbit experience-orbit-bottom" aria-hidden="true"></div>
     </section>
 
     <section class="section stack" id="skills" aria-labelledby="stack-title">
-      <div class="container">
-        <div class="section-heading" data-reveal><div><p class="eyebrow">Technology stack</p><h2 id="stack-title">The tools behind dependable websites.</h2></div><p>A practical stack centered on WordPress and supported by front-end development, design, content, and hosting experience.</p></div>
-        <div class="stack-grid">
-          <article class="stack-group" data-reveal><p>01 / CMS &amp; commerce</p><h3>WordPress</h3><ul><li>WooCommerce</li><li>Elementor</li><li>Theme customization</li><li>Plugin development</li></ul></article>
-          <article class="stack-group" data-reveal><p>02 / Core development</p><h3>Web technologies</h3><ul><li>PHP</li><li>JavaScript</li><li>HTML &amp; CSS</li><li>Tailwind CSS</li><li>Vue.js</li></ul></article>
-          <article class="stack-group" data-reveal><p>03 / Workflow</p><h3>Delivery tools</h3><ul><li>Git &amp; GitHub</li><li>Figma</li><li>UI/UX design</li><li>SEO</li><li>AI-powered tools</li></ul></article>
-          <article class="stack-group" data-reveal><p>04 / Website operations</p><h3>Reliability</h3><ul><li>Performance optimization</li><li>Hosting setup</li><li>Server management</li><li>Security maintenance</li><li>Content management</li></ul></article>
+      <div class="container stack-shell">
+        <div class="stack-heading" data-reveal>
+          <p class="stack-kicker"><i aria-hidden="true"></i> Technology stack <span aria-hidden="true"></span></p>
+          <p class="stack-range" aria-hidden="true">| 03 — 04 |</p>
+          <h2 id="stack-title">The tools behind<br> dependable websites.</h2>
+          <p class="stack-intro">A practical stack centered on WordPress and supported by front-end development, design, content, and hosting experience.</p>
         </div>
+
+        <div class="stack-grid">
+          <article class="stack-group" data-reveal>
+            <div class="stack-card-head"><p>01 / CMS &amp; commerce</p><span aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14"/><path d="M9.5 14.5h21M12 12l6.5 18M27.5 11.5 21 30M17 15.2l7 14.5M24 15.2l3.3 7.4"/></svg></span></div>
+            <h3>WordPress</h3><i class="stack-card-rule" aria-hidden="true"></i>
+            <ul><li>WooCommerce</li><li>Elementor</li><li>Theme customization</li><li>Plugin development</li></ul>
+            <div class="stack-card-foot" aria-hidden="true"><p>Websites that sell</p><span>→</span></div>
+          </article>
+          <article class="stack-group" data-reveal>
+            <div class="stack-card-head"><p>02 / Core development</p><span aria-hidden="true"><svg viewBox="0 0 40 40"><path d="m15 11-9 9 9 9M25 11l9 9-9 9M23 6l-6 28"/></svg></span></div>
+            <h3>Web technologies</h3><i class="stack-card-rule" aria-hidden="true"></i>
+            <ul><li>PHP</li><li>JavaScript</li><li>HTML &amp; CSS</li><li>Tailwind CSS</li><li>Vue.js</li></ul>
+            <div class="stack-card-foot" aria-hidden="true"><p>Modern. Flexible. Scalable.</p><span>→</span></div>
+          </article>
+          <article class="stack-group" data-reveal>
+            <div class="stack-card-head"><p>03 / Workflow</p><span aria-hidden="true"><svg viewBox="0 0 40 40"><path d="m20 6 14 7-14 7-14-7 14-7ZM6 20l14 7 14-7M6 27l14 7 14-7"/></svg></span></div>
+            <h3>Delivery tools</h3><i class="stack-card-rule" aria-hidden="true"></i>
+            <ul><li>Git &amp; GitHub</li><li>Figma</li><li>UI/UX design</li><li>SEO</li><li>AI-powered tools</li></ul>
+            <div class="stack-card-foot" aria-hidden="true"><p>Plan. Build. Deliver.</p><span>→</span></div>
+          </article>
+          <article class="stack-group" data-reveal>
+            <div class="stack-card-head"><p>04 / Website operations</p><span aria-hidden="true"><svg viewBox="0 0 40 40"><rect x="7" y="7" width="26" height="11" rx="2"/><rect x="7" y="22" width="26" height="11" rx="2"/><path d="M12 12.5h.1M12 27.5h.1M17 12.5h11M17 27.5h11"/></svg></span></div>
+            <h3>Reliability</h3><i class="stack-card-rule" aria-hidden="true"></i>
+            <ul><li>Performance optimization</li><li>Hosting setup</li><li>Server management</li><li>Security maintenance</li><li>Content management</li></ul>
+            <div class="stack-card-foot" aria-hidden="true"><p>Stable. Secure. Always on.</p><span>→</span></div>
+          </article>
+        </div>
+
+        <div class="stack-footer" aria-hidden="true"><p><i></i> Let's build something great together</p><span></span><p>Websites / Brands / Performance / Growth</p></div>
       </div>
+      <div class="stack-side-note" aria-hidden="true"><i></i><p>Build<br>Reliable<br>Websites<br>Together</p></div>
+      <div class="stack-orbit stack-orbit-top" aria-hidden="true"></div>
+      <div class="stack-orbit stack-orbit-bottom" aria-hidden="true"></div>
     </section>
 
     <section class="section about" id="about" aria-labelledby="about-title">
