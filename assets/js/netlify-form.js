@@ -39,6 +39,11 @@
         return "";
       },
     },
+    consent: {
+      validate: function (_value, input) {
+        return input.checked ? "" : "Please confirm that I may contact you about this inquiry.";
+      },
+    },
   };
 
   const form = document.getElementById("contact-form");
@@ -56,7 +61,9 @@
     email: form.querySelector("#contact-email"),
     subject: form.querySelector("#contact-subject"),
     message: form.querySelector("#contact-message"),
+    consent: form.querySelector("#contact-consent"),
   };
+  const messageCount = form.querySelector("[data-message-count]");
 
   function getErrorElement(input) {
     return document.getElementById(input.getAttribute("aria-describedby").split(" ")[0]);
@@ -79,7 +86,7 @@
     const rule = rules[input.name];
     if (!rule) return true;
 
-    const message = rule.validate(input.value);
+    const message = rule.validate(input.value, input);
     setFieldError(input, message);
     return !message;
   }
@@ -125,6 +132,7 @@
   function resetForm() {
     form.reset();
     Object.values(fields).forEach(clearFieldError);
+    if (messageCount) messageCount.textContent = "0";
     hideError();
     setLoading(false);
     successPanel.hidden = true;
@@ -145,6 +153,13 @@
       }
     });
   });
+
+  if (messageCount) {
+    messageCount.textContent = String(fields.message.value.length);
+    fields.message.addEventListener("input", function () {
+      messageCount.textContent = String(fields.message.value.length);
+    });
+  }
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
