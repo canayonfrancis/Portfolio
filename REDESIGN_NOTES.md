@@ -1,5 +1,29 @@
 # Portfolio Redesign Notes
 
+## 2026-09-06 case-study spine refinement
+
+The existing minimal editorial / technical-interface direction was retained and refined around a clearer conversion path. The hero now uses an explicit three-line name treatment, tighter positioning copy, a stronger “View Selected Work” action, and a non-numeric Core Web Vitals label in place of the unverified “98 Performance” value.
+
+Capabilities were compressed into a focused four-part rail to avoid repeating the Services section. Featured Work now gives Blue Cardinal Chemical anchor-case-study status with supported challenge, contribution, and qualitative outcome context, followed by a staggered supporting-project grid. The latest three roles lead the Experience section; four earlier roles remain in static HTML inside an accessible career archive. The technology section is now a keyboard-operable Core / Daily / Supporting relationship map with an explanatory inspector. About content is split into three scannable themes, and the footer taxonomy was simplified.
+
+The motion system now includes restrained 4px magnetic actions, active recent-experience nodes, project “View” affordances, and the existing cursor scanner. Mobile and reduced-motion users receive the complete CSS hero composition without WebGL; the enhanced WebGL scene still initializes on capable desktop environments. Decorative section footers and side ornaments were reduced.
+
+A site-specific 1200 × 630 WebP social preview was added and wired into Open Graph and X metadata. The manifest theme and sitemap modification date were updated.
+
+Validation on this revision:
+
+- Netlify offline production build: PASS
+- HTML validation: PASS
+- JavaScript syntax: PASS
+- JSON-LD, sitemap, manifest, and local asset references: PASS
+- Automated interaction and overflow checks at 320, 375, 390, 430, 768, 1024, 1280, 1440, and 1920 px: PASS
+- Desktop WebGL initialization: PASS
+- Mobile Lighthouse: 96 Performance, 100 Accessibility, 100 Best Practices, 100 SEO; LCP 2.6 s, TBT 0 ms, CLS 0.019
+- Desktop Lighthouse: 99 Performance, 100 Accessibility, 100 Best Practices, 100 SEO; LCP 0.9 s, TBT 0 ms, CLS 0
+- Netlify routes, assets, redirect, 404, crawl files, and response headers: PASS
+
+The local Netlify emulator returns HTTP 405 for form POSTs, as before. Form structure, validation, loading, error, and success states are present; one real submission must still be confirmed after the next Netlify deployment.
+
 Implementation date: 2026-09-04  
 Production URL: https://francisdev.netlify.app/  
 Architecture: static HTML, CSS, JavaScript, and image assets; no build step
@@ -72,7 +96,7 @@ Cursor motion is controlled by `CURSOR_SMOOTHING` and `CORE_SMOOTHING` at the to
 - Software-rendered, automated-audit, no-WebGL, context-loss, and reduced-motion environments use the complete CSS visual instead of leaving the hero empty.
 - The cursor scanner updates only CSS variables, stops requestAnimationFrame work after settling, avoids full-screen blur filters, and is never initialized on touch or reduced-motion devices.
 
-## Validation record
+## 2026-09-04 validation record (superseded by the refinement above)
 
 | Check | Result |
 | --- | --- |
@@ -99,8 +123,8 @@ Cursor motion is controlled by `CURSOR_SMOOTHING` and `CORE_SMOOTHING` at the to
 | Cursor behavior on touch and reduced-motion emulation | PASS — not initialized |
 | Sora / JetBrains Mono delivery | PASS — all requested weights; two subsetted WOFF2 files, no failed requests |
 | Horizontal overflow at 320, 375, 430, 768, 1024, 1280, 1440, and 1920 px | PASS — none |
-| Current local mobile Lighthouse | 99 Performance, 100 Accessibility, 100 Best Practices, 100 SEO |
-| Lighthouse lab metrics | FCP 1.2 s, LCP 2.2 s, TBT 0 ms, CLS 0.004 |
+| 2026-09-04 local mobile Lighthouse | 99 Performance, 100 Accessibility, 100 Best Practices, 100 SEO |
+| 2026-09-04 Lighthouse lab metrics | FCP 1.2 s, LCP 2.2 s, TBT 0 ms, CLS 0.004 |
 
 The Netlify development server correctly serves the site and configuration but returns HTTP 405 for local form POSTs. Form structure and all client-side states were validated locally; a real submission must be confirmed once after deployment in the Netlify dashboard. No production form message was sent during this work.
 

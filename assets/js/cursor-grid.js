@@ -6,7 +6,7 @@
   const CORE_SMOOTHING = 0.38;
   const SETTLE_THRESHOLD = 0.08;
   const CARD_SELECTOR = ".featured-project, .project-card";
-  const INTERACTIVE_SELECTOR = ".button, .text-link, .primary-nav a, .profile-links a, .creative-links a";
+  const INTERACTIVE_SELECTOR = ".button, .text-link, .primary-nav a, .profile-links a, .creative-links a, .capability-rail a, .stack-system button";
 
   const root = document.documentElement;
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
@@ -34,7 +34,6 @@
     scanner.className = "cursor-scanner";
     scanner.setAttribute("aria-hidden", "true");
     scanner.innerHTML = [
-      '<span class="cursor-scanner__grid"></span>',
       '<span class="cursor-scanner__outer-glow"></span>',
       '<span class="cursor-scanner__inner-glow"></span>',
       '<span class="cursor-scanner__hud"><span class="cursor-scanner__ring"></span></span>',

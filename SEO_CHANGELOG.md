@@ -11,13 +11,23 @@ The repository implementation is complete and validated locally. It has not been
 
 Search rankings cannot be guaranteed. The purpose of these changes is to give search engines stronger, consistent evidence about Francis's identity, profession, official portfolio, and public profiles.
 
+## 2026-09-06 portfolio hierarchy and social-preview update
+
+- Preserved the canonical title, description, URL, person entity graph, profile links, crawl files, and single-H1 structure.
+- Tightened the hero positioning around WordPress and WooCommerce work without adding keyword repetition.
+- Added business-focused challenge, contribution, and qualitative outcome copy to the anchor case study using only existing supported project information.
+- Kept all earlier employment and project content in static, crawlable HTML while compressing it visually with accessible disclosures.
+- Added a dedicated 1200 × 630 WebP Open Graph / X card with exact name and role text and changed the X card type to `summary_large_image`.
+- Updated `dateModified`, `theme-color`, manifest colors, and the sitemap modification date.
+- Current local Lighthouse: mobile 96 Performance / 100 Accessibility / 100 Best Practices / 100 SEO; desktop 99 / 100 / 100 / 100.
+
 ## 2026-09-04 portfolio redesign
 
 The site was redesigned as a dependency-free static portfolio centered on WordPress and WooCommerce client work. The existing title, description, canonical, Open Graph/Twitter metadata, entity graph, crawl files, anchor URLs, public profiles, contact form identity, experience, education, portrait, and all 27 project screenshot sets were preserved.
 
 The new page keeps one full-name H1, brings selected work near the top, exposes meaningful experience and service copy in static HTML, and adds a lightweight CSS/WebGL development visual with reduced-motion and static fallbacks. Obsolete template libraries and superseded photographic hero files were removed after reference checks. Current implementation and validation details are recorded in `REDESIGN_NOTES.md`.
 
-Current local mobile Lighthouse after the cursor-grid and Sora/JetBrains Mono typography enhancements: Performance 99, Accessibility 100, Best Practices 100, SEO 100; FCP 1.2 s, LCP 2.1 s, TBT 0 ms, and CLS 0.004. Production results may vary and remain a post-deploy verification item.
+The 2026-09-04 local mobile Lighthouse run after the cursor-grid and Sora/JetBrains Mono typography enhancements recorded Performance 99, Accessibility 100, Best Practices 100, SEO 100; FCP 1.2 s, LCP 2.1 s, TBT 0 ms, and CLS 0.004. The current refinement results appear above. Production results may vary and remain a post-deploy verification item.
 
 ## Baseline
 

@@ -34,7 +34,7 @@
     requestScrollUpdate();
   }
 
-  refreshScrollRange();
+  requestScrollUpdate();
   window.addEventListener("scroll", requestScrollUpdate, { passive: true });
   window.addEventListener("resize", refreshScrollRange, { passive: true });
   window.addEventListener("load", refreshScrollRange, { once: true });
@@ -203,5 +203,76 @@
       });
     }, { rootMargin: "-25% 0px -60%", threshold: 0 });
     observedSections.forEach(function (section) { sectionObserver.observe(section); });
+  }
+
+  const stackSystem = document.querySelector("[data-stack-system]");
+  if (stackSystem) {
+    const stackButtons = Array.from(stackSystem.querySelectorAll("button[data-stack-name]"));
+    const stackTitle = stackSystem.querySelector("[data-stack-title]");
+    const stackDescription = stackSystem.querySelector("[data-stack-description]");
+    const stackSymbol = stackSystem.querySelector(".stack-inspector > span");
+
+    function selectTechnology(button) {
+      stackButtons.forEach(function (item) {
+        const isSelected = item === button;
+        item.classList.toggle("is-active", isSelected);
+        item.setAttribute("aria-pressed", String(isSelected));
+      });
+      stackTitle.textContent = button.dataset.stackName;
+      stackDescription.textContent = button.dataset.stackDetail;
+      stackSymbol.textContent = button.dataset.stackName.replace(/[^A-Za-z]/g, "").slice(0, 2).toUpperCase();
+    }
+
+    stackButtons.forEach(function (button) {
+      if (!button.hasAttribute("aria-pressed")) button.setAttribute("aria-pressed", "false");
+      button.addEventListener("click", function () { selectTechnology(button); });
+    });
+  }
+
+  const priorityTimelineItems = Array.from(document.querySelectorAll(".timeline-item-priority"));
+  if (priorityTimelineItems.length && "IntersectionObserver" in window && !reducedMotion.matches) {
+    const timelineObserver = new IntersectionObserver(function (entries) {
+      const visible = entries.filter(function (entry) { return entry.isIntersecting; })
+        .sort(function (a, b) { return b.intersectionRatio - a.intersectionRatio; });
+      if (!visible.length) return;
+      priorityTimelineItems.forEach(function (item) { item.classList.toggle("is-active", item === visible[0].target); });
+    }, { rootMargin: "-30% 0px -45%", threshold: [0.1, 0.35, 0.65] });
+    priorityTimelineItems.forEach(function (item) { timelineObserver.observe(item); });
+  }
+
+  const magneticLinks = Array.from(document.querySelectorAll(".magnetic-link"));
+  if (magneticLinks.length && finePointer.matches && !reducedMotion.matches) {
+    magneticLinks.forEach(function (link) {
+      let frame = 0;
+      let targetX = 0;
+      let targetY = 0;
+      let currentX = 0;
+      let currentY = 0;
+
+      function renderMagnet() {
+        currentX += (targetX - currentX) * 0.24;
+        currentY += (targetY - currentY) * 0.24;
+        link.style.setProperty("--magnetic-x", currentX.toFixed(2) + "px");
+        link.style.setProperty("--magnetic-y", currentY.toFixed(2) + "px");
+        if (Math.abs(targetX - currentX) > 0.05 || Math.abs(targetY - currentY) > 0.05) frame = window.requestAnimationFrame(renderMagnet);
+        else frame = 0;
+      }
+
+      function requestMagnet() {
+        if (!frame) frame = window.requestAnimationFrame(renderMagnet);
+      }
+
+      link.addEventListener("pointermove", function (event) {
+        const bounds = link.getBoundingClientRect();
+        targetX = Math.max(-4, Math.min(4, ((event.clientX - bounds.left) / bounds.width - 0.5) * 8));
+        targetY = Math.max(-4, Math.min(4, ((event.clientY - bounds.top) / bounds.height - 0.5) * 8));
+        requestMagnet();
+      }, { passive: true });
+      link.addEventListener("pointerleave", function () {
+        targetX = 0;
+        targetY = 0;
+        requestMagnet();
+      }, { passive: true });
+    });
   }
 })();

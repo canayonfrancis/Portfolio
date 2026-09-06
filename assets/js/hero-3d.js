@@ -230,6 +230,10 @@
       setFallback("fallback-reduced-motion");
       return;
     }
+    if (compactScene.matches) {
+      setFallback("fallback-compact");
+      return;
+    }
 
     let gl;
     try {
@@ -475,7 +479,7 @@
     const textures = {
       wordpress: createModuleTexture("W", "WORDPRESS", "CMS / BUILD", "blue"),
       commerce: createModuleTexture("WC", "WOOCOMMERCE", "STORE / SCALE", "muted"),
-      performance: createModuleTexture("98", "PERFORMANCE", "OPTIMIZED", "blue"),
+      performance: createModuleTexture("CWV", "PERFORMANCE", "OPTIMIZED", "blue"),
       url: createInterfaceTexture("francis.dev / build", "#777b82", "rgba(231,232,234,0.96)"),
       site: createInterfaceTexture("<SITE />", "#777b82", null),
       optimized: createInterfaceTexture("PERFORMANCE: OPTIMIZED", "#155eef", null),
